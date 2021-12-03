@@ -144,7 +144,7 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 	@Override
 	public String toString() {
 		//NomDeLaClasse n° id_agent (position x; position y)
-		return getClass().getSimpleName() + " " + id + " (" + coord.x + ";" + coord.y + ")";
+		return getClass().getSimpleName() + " " + id + " (" + getCoord().x + ";" + getCoord().y + ")";
 	}
 	
 	
