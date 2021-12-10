@@ -2,6 +2,8 @@ package model.decor;
 
 import java.awt.Point;
 
+import model.agents.PointPositif;
+
 //partie 2
 //import model.agents.PointPositif;
 
@@ -10,25 +12,25 @@ public abstract class Decor{
 	 * coordonnées de l'élément de décor
 	 */
 	//partie 2
-	//private PointPositif coord;
+	private PointPositif coord;
 	//partie 1
-	private Point coord;
+	//private Point coord;
 
 
 	public Decor(Point p) {
-		coord = p;
+		//coord = p;
 		//partie 2
-		//coord = new PointPositif(p);
+		coord = new PointPositif(p);
 	}
 	
-	/* partie 2
+	// partie 2
 	public PointPositif getCoord() {
 		return (PointPositif)coord.clone();
 	}
-	*/
-	//partie 1
+	
+	/*partie 1
 	public Point getCoord() {
 		return new Point(coord);
 	}
-
+	*/
 }

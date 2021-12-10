@@ -1,6 +1,8 @@
 package model.comportements;
 
 import model.agents.Animal;
+import model.agents.PointPositif;
+//import java.awt.Point;
 
 /**
  * un hébergeur peut accueillir un animal
@@ -23,4 +25,10 @@ public interface Hebergeur {
 	 * @return
 	 */
 	public boolean accueillir(Animal a);
+
+	/**
+	 * Retourne les coord de l'hébergeur
+	 * @return coord
+	 */
+	public PointPositif getCoord();
 }

@@ -1,12 +1,14 @@
 package model.agents.animaux;
 
-import model.agents.animaux.Abeille;
+//import model.agents.animaux.Abeille;
 
 import java.awt.Point;
 
 import model.agents.Sexe;
 import model.agents.Agent;
 import model.agents.Animal;
+import model.agents.PointPositif;
+
 /**
  * 
  * @author bruno
@@ -15,9 +17,13 @@ import model.agents.Animal;
 public class Varroa extends Animal {
 	
 	public Varroa(Sexe s, Point p) {
-		//TODO
+		super(s,p);
 	}
 		
+	public Varroa(Sexe s, PointPositif p) {
+		this(s,p.getPoint());
+	}
+
 	@Override
 	public void rencontrer(Agent a) {
 		//code à trouver en section 6
@@ -36,6 +42,13 @@ public class Varroa extends Animal {
 	@Override
 	protected void seNourrir() {
 		// TODO Auto-generated method stub
+		if(hebergeur != null) {
+			Abeille abeillehote = (Abeille)hebergeur;
+			coord = abeillehote.getCoord(); 
+		}
+		else {
+			super.seDeplacer();
+		}
 		
 	}
 	/**

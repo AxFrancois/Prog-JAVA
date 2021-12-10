@@ -3,6 +3,8 @@ package model.agents.vegetaux;
 import java.awt.Point;
 
 import model.agents.Animal;
+import model.agents.PointPositif;
+import model.agents.Sexe;
 import model.agents.animaux.AbeilleSolitaire;
 import model.agents.animaux.Frelon;
 import model.comportements.Hebergeur;
@@ -12,6 +14,10 @@ public class Arbre extends Vegetal implements Hebergeur{
 	public Arbre(Point point, double taille) {
 		super(point);
 		this.taille=taille;
+	}
+
+	public Arbre(PointPositif point, double taille) {
+		this(point.getPoint(), taille);
 	}
 
 	private double taille = 1.0;

@@ -3,7 +3,8 @@ package model.agents.animaux;
 import java.awt.Point;
 
 import model.decor.Ruche;
-import model.agents.Agent;
+import model.agents.PointPositif;
+//import model.agents.Agent;
 import model.agents.Sexe;
 
 public class AbeilleDomestique extends Abeille {
@@ -12,6 +13,10 @@ public class AbeilleDomestique extends Abeille {
 		super(s,p);
 		hebergeur = r;
 		r.accueillir(this);
+	}
+
+	public AbeilleDomestique(Sexe s, PointPositif p, Ruche r) {
+		this(s,p.getPoint(),r);
 	}
 	
 }

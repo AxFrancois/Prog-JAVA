@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import model.agents.Animal;
-import model.agents.Sexe;
+//import model.agents.Sexe;
 import model.agents.animaux.AbeilleDomestique;
 import model.comportements.Hebergeur;
 
@@ -48,7 +48,7 @@ public class Ruche extends Decor implements Hebergeur{
 		 * "\t" code une tabulation dans une chaine de caractères
 		 * "\n" un saut de ligne 
 		 */
-		String ret = getClass().getSimpleName() + " (" + getCoord().x + ";" + getCoord().y + ") : population " + population.size() + " abeilles \n";
+		String ret = getClass().getSimpleName() + " (" + getCoord().getX() + ";" + getCoord().getY() + ") : population " + population.size() + " abeilles \n";
 		Iterator<AbeilleDomestique> it = population.iterator();
 		while(it.hasNext()) {
 			  ret += "\t*" + it.next().toString() + "\n";
@@ -57,7 +57,7 @@ public class Ruche extends Decor implements Hebergeur{
 	}
 	
 	public static void main(String[] a) {
-		
+		/*
 		Ruche r = new Ruche(new Point(0,0));
 		new AbeilleDomestique(Sexe.Assexue, new Point(10,20),r);
 		System.out.println(r);
@@ -65,6 +65,6 @@ public class Ruche extends Decor implements Hebergeur{
 		System.out.println(r);
 		new AbeilleDomestique(Sexe.Femelle, new Point(5,10),r);
 		System.out.println(r);
-		
+		*/
 	}
 }

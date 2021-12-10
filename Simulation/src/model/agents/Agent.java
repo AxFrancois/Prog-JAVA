@@ -24,8 +24,8 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 	/** age en unité de temps*/
 	protected int age;
 	/** position sur la carte*/
-	//protected PointPositif coord;
-	protected Point coord;
+	protected PointPositif coord;
+	//protected Point coord;
 	
 	/**
 	 * faim (booléen pour le moment)
@@ -40,9 +40,9 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 		age = 0;
 		id = Agent.getUniqueId();
 		//à commenter partie 3 
-		this.coord=coord;
+		//this.coord=coord;
 		//à décommenter partie 3 
-		//this.coord=new PointPositif(coord);
+		this.coord=new PointPositif(coord);
 	}
 	/**
 	 * age 0, id unique et position (0,0)
@@ -72,19 +72,20 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 	 * l'objet renvoyé
 	 * @return un clone de {@link #coord}
 	 */
-	/* partie 1 */
+	/* partie 1 
 	public Point getCoord() {
 		return new Point(coord);
 	}
-	/* partie 2 et 3
+	*/
+	/* partie 2 et 3*/
 	public PointPositif getCoord() {
 		
 		//version 1
-		return new PointPositif(new Point(coord.getX(),coord.getY()));
+		//return new Point(coord.getX(),coord.getY());
 		// ou version 2
-		//return (PointPositif) coord.clone();
+		return (PointPositif) coord.clone();
 	}
-	*/
+	
 	
 	/**
 	 * age doit être un entier positif
@@ -106,11 +107,11 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 	 * @param y
 	 */
 	public void setCoord(int x, int y) {
-		coord.setLocation(x, y);
-		/* partie  3
+		/*coord.setLocation(x, y);
+		 partie  3*/
 		coord.setX(x);
 		coord.setY(y);
-		*/
+		
 	}
 	
 	/**
@@ -144,7 +145,7 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 	@Override
 	public String toString() {
 		//NomDeLaClasse n° id_agent (position x; position y)
-		return getClass().getSimpleName() + " " + id + " (" + getCoord().x + ";" + getCoord().y + ")";
+		return getClass().getSimpleName() + " " + id + " (" + coord.getX() + ";" + coord.getY() + ")";
 	}
 	
 	
@@ -196,4 +197,13 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 		// TODO Auto-generated method stub
 		return id-o.id;
 	}
+	public int getX() {
+		// TODO Auto-generated method stub
+		return coord.getX();
+	}
+	public int getY() {
+		// TODO Auto-generated method stub
+		return coord.getY();
+	}
+
 }

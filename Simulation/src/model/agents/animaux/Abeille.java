@@ -56,7 +56,7 @@ public abstract class Abeille extends Animal implements Hebergeur{
 		/*
 		 * l'abeille n'a pas de parasite et l'animal est un Varroa
 		 */
-		return a instanceof Varroa && !parasite;
+		return a instanceof Varroa && !isParasite();
 	}
 
 	@Override
@@ -81,6 +81,10 @@ public abstract class Abeille extends Animal implements Hebergeur{
 	protected void seNourrir() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public boolean isParasite() {
+		return parasite;
 	}
 
 }

@@ -1,6 +1,8 @@
 package model.world;
 
 import java.awt.Point;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -8,9 +10,12 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import model.agents.Agent;
+import model.agents.Animal;
+import model.agents.Etat;
 //partie 2
 //import model.agents.PointPositif;
 import model.agents.Sexe;
+import model.agents.animaux.Abeille;
 import model.agents.animaux.AbeilleDomestique;
 import model.agents.animaux.AbeilleSolitaire;
 import model.agents.animaux.FrelonAsiatique;
@@ -18,6 +23,7 @@ import model.agents.animaux.FrelonEuropeen;
 import model.agents.animaux.Varroa;
 import model.agents.vegetaux.Arbre;
 import model.agents.vegetaux.Fleur;
+//import model.comportements.Deplacable;
 import model.decor.Ruche;
 
 public class Monde {
@@ -38,6 +44,7 @@ public class Monde {
 	 */
 	private static int LONGUEUR = 20;
 	
+	private double rayon = 2.0;
 	/**
 	 * 
 	 * @param nbAgents
@@ -165,12 +172,10 @@ public class Monde {
 		String ret="";
 		ret+="******************************\n";
 		ret+="Le monde contient "+agents.size()+" agents:\n";
-		/*
-		 * TODO
 		Set<Agent> coordSet = new TreeSet<Agent>(new CoordComparator());//TODO
 		coordSet.addAll(agents);
-		*/
-		for(Agent a:agents) {
+		
+		for(Agent a:coordSet) {
 			ret+="\t"+a+"\n";
 		}
 		return ret;
@@ -183,8 +188,62 @@ public class Monde {
 		/*
 		 * TODO appeler la méthode cycle sur tous les agents		
 		 */
+		HashMap<Agent,HashSet<Agent>> MapRencontre = gererRencontre();
+		
+	    for (Agent a : MapRencontre.keySet()) {
+	    	for (Agent voisin : MapRencontre.get(a)) {
+	    		a.rencontrer(voisin);
+	    	}
+	    }    
+		for(Agent a:agents) {
+			a.cycle();
+			if (a instanceof Animal) {
+				if (((Animal)a).getEtat() == Etat.Mourant) {
+					supprimer(a);
+				}
+			}
+		}
 	}
 	
-	
+	private void supprimer(Agent a) {
+		// TODO Auto-generated method stub
+		agents.remove(a);
+		if (a instanceof AbeilleDomestique) {
+			// faire liste ruche et vérifier si l'abeille est dedans, la pop
+		}
+		if (a instanceof Abeille) {
+			if (((Abeille)a).isParasite()) {
+				for(Agent ag:agents) {
+					if (ag instanceof Varroa) {
+						/*if (((Varroa)a).) {}
+						 * 
+						 * Si le varroa est hébergé par CETTE abeille, il n'a plus d'hébergeur
+						 * */
+						break;
+					}
+				}
+			}
+		}
+		if (a instanceof Varroa) {
+			// si le varroa est mort l'abeille n'est plus parasité
+		}
+	}
+
+	public HashMap<Agent,HashSet<Agent>> gererRencontre(){
+		HashMap<Agent,HashSet<Agent>> ret = new HashMap<Agent,HashSet<Agent>>();
+		for(Agent a:agents) {
+			HashSet<Agent> listevoisin = new HashSet<Agent>();
+			for(Agent potentielvoisin:agents) {
+				if (potentielvoisin != a) {
+				double distance = Math.sqrt(Math.pow(a.getX() - potentielvoisin.getX(), 2) + Math.pow(a.getY() - potentielvoisin.getY(), 2));
+					if (distance < rayon) {
+						listevoisin.add(potentielvoisin);
+					}
+				}
+			}
+			ret.put(a, listevoisin);
+		}
+		return ret;
+	}
 
 }
