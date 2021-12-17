@@ -50,7 +50,13 @@ public class Arbre extends Vegetal implements Hebergeur{
 
 	@Override
 	public Arbre clone() {
-		return new Arbre(new Point(), 1);
+		return new Arbre(new Point(getCoord().getX(),getCoord().getY()), taille);
     }
 
+	public int getWidth() {
+		return 75;
+	}
+	public int getHeight() {
+		return 75;
+	}
 }

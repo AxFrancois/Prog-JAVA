@@ -3,6 +3,7 @@ package model.agents;
 import java.awt.Point;
 
 import model.comportements.Deplacable;
+import model.world.Dessinable;
 
 /**
  * Cette classe modélise un Agent, c'est à dire un élément du monde qui est vivant ET 
@@ -13,7 +14,7 @@ import model.comportements.Deplacable;
  * @author bruno
  *
  */
-public abstract class Agent implements Cloneable, Comparable<Agent>{
+public abstract class Agent implements Cloneable, Comparable<Agent>,Dessinable{
 	
 	/* attributs de classe */
 	private static int currentId = 0;
@@ -31,6 +32,9 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 	 * faim (booléen pour le moment)
 	 */
 	protected boolean faim = false;
+	
+	private int Width = 30;
+	private int Height = 30;
 	
 	/**
 	 * crée un agent d'age 0, avec un id unique à la position coord
@@ -207,4 +211,14 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 	}
 
     public abstract Object clone();
+    
+	public String getImage() {
+		return"images/"+getClass().getSimpleName()+".gif";
+	}
+	public int getWidth() {
+		return Width;
+	}
+	public int getHeight() {
+		return Height;
+	}
 }

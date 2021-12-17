@@ -22,7 +22,7 @@ public class Fleur extends Vegetal {
 
 	@Override
 	public Fleur clone() {
-		return new Fleur(new Point());
+		return new Fleur(new Point(getCoord().getX(),getCoord().getY()));
     }
 
 }

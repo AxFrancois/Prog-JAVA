@@ -17,7 +17,7 @@ public class FrelonAsiatique extends Frelon{
 
 	@Override
 	public FrelonAsiatique clone() {
-		return new FrelonAsiatique(Sexe.Assexue,new Point());
+		return new FrelonAsiatique(getSexe() ,new Point(getCoord().getX(),getCoord().getY()));
     }
 
 	

@@ -20,7 +20,7 @@ public class FrelonEuropeen extends Frelon {
 
 	@Override
 	public FrelonEuropeen clone() {
-		return new FrelonEuropeen(Sexe.Assexue,new Point());
+		return new FrelonEuropeen(getSexe() ,new Point(getCoord().getX(),getCoord().getY()));
     }
 
 	/* inutile avec la liste de proies à partir des collections

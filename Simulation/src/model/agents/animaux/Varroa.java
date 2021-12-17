@@ -60,6 +60,6 @@ public class Varroa extends Animal {
 
 	@Override
 	public Varroa clone() {
-		return new Varroa(Sexe.Assexue,new Point());
+		return new Varroa(getSexe() ,new Point(getCoord().getX(),getCoord().getY()));
     }
 }
