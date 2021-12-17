@@ -19,4 +19,7 @@ public class AbeilleDomestique extends Abeille {
 		this(s,p.getPoint(),r);
 	}
 	
+	public AbeilleDomestique clone() {
+		return new AbeilleDomestique(Sexe.Assexue,new Point(), new Ruche(new Point()));
+    }
 }

@@ -18,6 +18,11 @@ public class FrelonEuropeen extends Frelon {
 		this(s,p.getPoint());
 	}
 
+	@Override
+	public FrelonEuropeen clone() {
+		return new FrelonEuropeen(Sexe.Assexue,new Point());
+    }
+
 	/* inutile avec la liste de proies à partir des collections
 	@Override
 	public void rencontrer(Agent a) {

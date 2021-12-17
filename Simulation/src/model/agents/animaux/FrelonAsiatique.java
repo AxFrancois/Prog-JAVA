@@ -15,6 +15,11 @@ public class FrelonAsiatique extends Frelon{
 		this(s,p.getPoint());
 	}
 
+	@Override
+	public FrelonAsiatique clone() {
+		return new FrelonAsiatique(Sexe.Assexue,new Point());
+    }
+
 	
 
 }

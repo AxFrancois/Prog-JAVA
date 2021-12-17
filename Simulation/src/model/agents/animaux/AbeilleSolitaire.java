@@ -16,4 +16,9 @@ public class AbeilleSolitaire extends Abeille{
 		this(s,p.getPoint());
 	}
 
+	@Override
+	public AbeilleSolitaire clone() {
+		return new AbeilleSolitaire(Sexe.Assexue,new Point());
+    }
+
 }

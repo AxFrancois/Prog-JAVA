@@ -206,4 +206,5 @@ public abstract class Agent implements Cloneable, Comparable<Agent>{
 		return coord.getY();
 	}
 
+    public abstract Object clone();
 }

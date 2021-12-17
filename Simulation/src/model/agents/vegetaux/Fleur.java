@@ -20,4 +20,9 @@ public class Fleur extends Vegetal {
 		qteNectar+=1;
 	}
 
+	@Override
+	public Fleur clone() {
+		return new Fleur(new Point());
+    }
+
 }

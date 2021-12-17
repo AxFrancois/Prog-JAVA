@@ -114,14 +114,18 @@ public class Monde {
 		TreeSet<Agent> ts = new TreeSet<Agent>();
 		for(int i=0;i<nbAgents;i++) {
 			int alea = (int)(Math.random()*100);
+			System.out.println(alea);
 			//partie 2
-			//ts.add((Agent)tirage(alea).clone());
+			ts.add((Agent)tirage(alea).clone());
 			//partie 1
-			ts.add(copieAgent(tirage(alea)));
+			//ts.add(copieAgent(tirage(alea)));
+			System.out.println(ts);
 		}
 		return ts;
 	}
-	/**
+	
+	/*
+	
 	 * à supprimer dès la partie deux lorsqu'il devient possible de
 	 * cloner les agents
 	 * place toutes les abeilles dans la même ruche
@@ -129,7 +133,6 @@ public class Monde {
 	 * ne respecte pas les bonnes pratiques (switch case sur le type) 
 	 * @param tirage
 	 * @return
-	 */
 	private Agent copieAgent(Agent tirage) {
 		// TODO Auto-generated method stub
 		Ruche ruche =new Ruche(new Point(10,50));
@@ -167,7 +170,8 @@ public class Monde {
 		}
 		return ret;
 	}
-
+	*/
+	
 	public String toString() {
 		String ret="";
 		ret+="******************************\n";

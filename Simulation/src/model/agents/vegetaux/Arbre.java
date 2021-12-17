@@ -7,6 +7,7 @@ import model.agents.PointPositif;
 import model.agents.Sexe;
 import model.agents.animaux.AbeilleSolitaire;
 import model.agents.animaux.Frelon;
+import model.agents.animaux.Varroa;
 import model.comportements.Hebergeur;
 
 public class Arbre extends Vegetal implements Hebergeur{
@@ -46,5 +47,10 @@ public class Arbre extends Vegetal implements Hebergeur{
 	public void produire() {
 		qteNectar += Math.pow(2, taille);		
 	}
+
+	@Override
+	public Arbre clone() {
+		return new Arbre(new Point(), 1);
+    }
 
 }

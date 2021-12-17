@@ -57,4 +57,9 @@ public class Varroa extends Animal {
 	public void seDeplacer() {
 		//TODO
 	}
+
+	@Override
+	public Varroa clone() {
+		return new Varroa(Sexe.Assexue,new Point());
+    }
 }
